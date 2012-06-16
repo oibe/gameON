@@ -13,6 +13,8 @@ categories_dict['basketball'] = ['4bf58dd8d48988d1e1941735',#basketball court
 								 '4bf58dd8d48988d1ba941735']#college basketball
 categories_dict['frisbee'] = [fields_id,parks_id]
 categories_dict['soccer'] = [fields_id,parks_id]
+categories_dict['dodgeball'] = [fields_id,parks_id]
+categories_dict['tag']= [fields_id,parks_id]
 
 def grab_venues(sport,lat, lon):
 	url = 'https://api.foursquare.com/v2/venues/search'
