@@ -7,14 +7,14 @@ categories_dict= {}
 categories_dict['tennis'] = ['4e39a956bd410d7aed40cbc3',#Tennis Court
 							'4e39a9cebd410d7aed40cbc4']#College Tennis Court
 
-def grab_venues(sport,meters,lat, lon,token):
+def grab_venues(sport,lat, lon):
 	url = 'https://api.foursquare.com/v2/venues/search'
 	queries=''
 	for query in categories_dict[sport]:
 		queries+=query+","
-	radius_miles = meters*meter_to_mile_convert
+	radius_miles = 5*meter_to_mile_convert
 	payload = {
-			'oauth_token':token,
+			'oauth_token':'YPVB42OFP2ZMDB4GD5YVRJF4SA1UDTQJNOGA32QQVTPFMATP',# oauth_token
 			'categoryId':queries,
 			'll':lat+","+lon,
 			'radius':radius_miles
@@ -26,9 +26,9 @@ def grab_venues(sport,meters,lat, lon,token):
 """
 grab_venues(
 	'tennis',#sport
-	5,#radius in miles
 	'40.7',#latitude
 	'-74',#longitude
-	'YPVB42OFP2ZMDB4GD5YVRJF4SA1UDTQJNOGA32QQVTPFMATP'# oauth_token
 )
 """
+
+#print grab_venues('tennis','40.7','-74')

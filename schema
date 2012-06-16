@@ -1,8 +1,9 @@
 Games {
-	category
+	sport
 	timedate
 	lon
 	lat
+	description
 	location name
 	players = []
 }
@@ -10,9 +11,16 @@ Games {
 Users{
 	id
 	name
-	photo
-	fbid
+	first_name
+	last_name
+	link
+	gender
+	locale
 }
+
+lat,lon,sport,
+
+return name, lat, lon,
 
 tennis
 basketball
