@@ -1,0 +1,26 @@
+Games {
+	category
+	timedate
+	lon
+	lat
+	location name
+	players = []
+}
+
+Users{
+	id
+	name
+	photo
+	fbid
+}
+
+tennis
+basketball
+soccer
+baseball
+dodgeball
+kickball
+tag
+volleyball
+football
+frisbee
