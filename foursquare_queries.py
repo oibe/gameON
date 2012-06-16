@@ -6,7 +6,10 @@ meter_to_mile_convert =1609
 categories_dict= {}
 categories_dict['tennis'] = ['4e39a956bd410d7aed40cbc3',#Tennis Court
 							'4e39a9cebd410d7aed40cbc4']#College Tennis Court
-
+categories_dict['basketball'] = ['4bf58dd8d48988d1e1941735',#basketball court
+								 '4bf58dd8d48988d1ba941735']#college basketball
+categories_dict['frisbee'] = ['4bf58dd8d48988d15f941735',#Fields
+							  '4bf58dd8d48988d163941735']#parks
 def grab_venues(sport,lat, lon):
 	url = 'https://api.foursquare.com/v2/venues/search'
 	queries=''
@@ -31,4 +34,4 @@ grab_venues(
 )
 """
 
-#print grab_venues('tennis','40.7','-74')
+#grab_venues('frisbee','40.7','-74')
