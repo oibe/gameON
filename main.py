@@ -1,6 +1,6 @@
 from flask import Flask, request, Response
 from pymongo import Connection
-import json
+from flask import json
 
 app = Flask(__name__)
 
@@ -40,8 +40,8 @@ def create_game():
     if request.method == 'POST':
         game = {
             'sport': request.form['sport'],
-            'latitude': request.form['lat'],
-            'longitude': request.form['lon'],
+            'latitude': float(request.form['lat']),
+            'longitude': float(request.form['lon']),
             'timestamp': request.form['timestamp'],
             'number_of_players': request.form['numplayers'],
             'creator': {
@@ -50,12 +50,20 @@ def create_game():
             }
         }
         db.games.insert(game)
+    return 'Inserted game into MongoDB successfully'
 
-
-@app.route("/games/list")
-def list_games():
+@app.route("/games/list", methods=['GET'])
+def list_games(lat=None, lon=None):
     # sorted by closest long/lat coordinates, then by date/time
-    return db.gameon.games.find("loc": )
+    latitude = lat
+    longitude = lon
+    radius = 5*1609
+    #return db.games.find({'loc': {'$within': {'$center': [[latitude,longitude], radius]}}})
+    games = []
+    for i in db.games.find():
+        games.append(i)
+    print games
+    return str(games).replace('u\'', '')
 
 @app.route("/game/join")
 def join_game():
